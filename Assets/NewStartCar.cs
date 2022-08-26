@@ -10,14 +10,13 @@ public class NewStartCar : MonoBehaviour, IPointerClickHandler
     public CinemachineVirtualCamera virtualCamera;
     public ParticleSystem[] particles;
     public ParticleSystem[] particlesDust;
-    private bool goToStart;
     public void OnPointerClick(PointerEventData eventData)
     {
         StartingCar();
     }
     public void StartingCar()
     {
-        goToStart = true;
+        //virtualCamera.GetComponent<CameraControl>().enabled = false;
         carScript = GetComponent<Car>();
         virtualCamera.Follow = transform;
         foreach (var particle in particles)
@@ -28,7 +27,7 @@ public class NewStartCar : MonoBehaviour, IPointerClickHandler
         {
             particle.Play();
         }
-        carScript.isStarting = true;
+        StartCoroutine(carScript.enText());
 
     }
     private void Start()

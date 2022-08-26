@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class Car : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Car : MonoBehaviour
     public bool isStarting;
     public Canvas canvas;
     private float velocity = 0;
+    public Text startText;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -127,5 +129,19 @@ public class Car : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         virtualCamera.Follow = startPoint;
         gameObject.SetActive(false);
+    }
+    public IEnumerator enText()
+    {
+        startText.gameObject.SetActive(true);
+        startText.text = "3";
+        yield return new WaitForSeconds(1f);
+        startText.text = "2";
+        yield return new WaitForSeconds(1f);
+        startText.text = "1";
+        yield return new WaitForSeconds(1f);
+        startText.text = "GO";
+        isStarting = true;
+        yield return new WaitForSeconds(.5f);
+        startText.gameObject.SetActive(false);
     }
 }
