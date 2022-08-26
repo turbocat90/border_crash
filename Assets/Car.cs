@@ -38,7 +38,7 @@ public class Car : MonoBehaviour
         GoToFinish();
         if (isStarting)
         {
-            float targetFOV = 40 + speed * 0.8f;
+            float targetFOV = 28 + speed * 0.5f;
             virtualCamera.m_Lens.FieldOfView = Mathf.SmoothDamp(virtualCamera.m_Lens.FieldOfView, targetFOV, ref velocity, 1f);
         }
     }
@@ -103,7 +103,7 @@ public class Car : MonoBehaviour
     }
     private void GoToFinish()
     {
-        Vector3 finish = new Vector3(0, 0, 462);
+        Vector3 finish = new Vector3(0, 0, 480);
         if (goToFinish)
         {
             //canvas.gameObject.SetActive(true);
