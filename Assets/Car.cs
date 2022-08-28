@@ -40,8 +40,8 @@ public class Car : MonoBehaviour
         GoToFinish();
         if (isStarting)
         {
-            float targetFOV = 28 + speed * 0.5f;
-            virtualCamera.m_Lens.FieldOfView = Mathf.SmoothDamp(virtualCamera.m_Lens.FieldOfView, targetFOV, ref velocity, 1f);
+          //  float targetFOV = 28 + speed * 0.5f;
+         //   virtualCamera.m_Lens.FieldOfView = Mathf.SmoothDamp(virtualCamera.m_Lens.FieldOfView, targetFOV, ref velocity, 1f);
         }
     }
     private void FixedUpdate()
@@ -128,20 +128,22 @@ public class Car : MonoBehaviour
     {
         yield return new WaitForSeconds(1.3f);
         virtualCamera.Follow = startPoint;
+        CameraController.StartPreviewCamera();
+
         gameObject.SetActive(false);
     }
     public IEnumerator enText()
     {
-        startText.gameObject.SetActive(true);
+       /* startText.gameObject.SetActive(true);
         startText.text = "3";
         yield return new WaitForSeconds(1f);
         startText.text = "2";
         yield return new WaitForSeconds(1f);
-        startText.text = "1";
+        startText.text = "1";*/
         yield return new WaitForSeconds(1f);
-        startText.text = "GO";
+      //  startText.text = "GO";
         isStarting = true;
-        yield return new WaitForSeconds(.5f);
-        startText.gameObject.SetActive(false);
+/*        yield return new WaitForSeconds(.5f);
+        startText.gameObject.SetActive(false);*/
     }
 }

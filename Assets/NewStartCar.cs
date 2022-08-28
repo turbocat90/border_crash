@@ -18,7 +18,8 @@ public class NewStartCar : MonoBehaviour, IPointerClickHandler
     {
         //virtualCamera.GetComponent<CameraControl>().enabled = false;
         carScript = GetComponent<Car>();
-        virtualCamera.Follow = transform;
+        //    virtualCamera.Follow = transform;
+        CameraController.FollowCar(carScript);
         foreach (var particle in particles)
         {
             particle.gameObject.SetActive(true);
@@ -27,7 +28,8 @@ public class NewStartCar : MonoBehaviour, IPointerClickHandler
         {
             particle.Play();
         }
-        StartCoroutine(carScript.enText());
+           StartCoroutine(carScript.enText());
+       // carScript.isStarting = true;
 
     }
     private void Start()
