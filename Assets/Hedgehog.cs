@@ -10,14 +10,14 @@ public class Hedgehog : MonoBehaviour
     {
         if (collision.transform.TryGetComponent(out Car car))
         {
-            car.HP -= damage;
-            if (car.HP <= 0)
+            car.armor -= damage;
+            if (car.armor <= 0)
             {
                 car.isCarDestroyed = true;
             }
             if (degreeOfStrength < 10)
             {
-                car.speed -= (car.speed * degreeOfStrength / 10) * 1000 / car.mass;
+                //car.speed -= (car.speed * degreeOfStrength / 10) * 1000 / car.armor;
                 gameObject.SetActive(false);
             }
             if (degreeOfStrength == 10)

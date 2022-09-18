@@ -8,14 +8,18 @@ public class PreviewCamera : MonoBehaviour
     [SerializeField] private float cameraSpeed;
     private float m_velocity = 0;
     private static Camera m_previewCamera;
-    private static Vector3 m_startPosition = new Vector3(0, 112.9f, 427.21f);
-    private static Vector3 m_endPosition = new Vector3(0, 109.7f, -167.8f);
+    [SerializeField] private Transform cameraStartPosition;
+    [SerializeField] private Transform cameraEndtPosition;
+    private static Vector3 m_startPosition;
+    private static Vector3 m_endPosition;
     private static bool isActive;
     private static float m_baseFOV = 75f;
     private void Awake()
     {
         m_previewCamera = GetComponent<Camera>();
         Condition(true);
+        m_startPosition = cameraStartPosition.position;
+        m_endPosition = cameraEndtPosition.position;
     }
     void FixedUpdate()
     {
@@ -23,12 +27,7 @@ public class PreviewCamera : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, m_endPosition) > 0.5f)
             {
-
-
-                // switch FOV to start 
                 m_previewCamera.fieldOfView = Mathf.SmoothDamp(m_previewCamera.fieldOfView, m_baseFOV, ref m_velocity, 0.5f);
-
-                // move
                 transform.position = Vector3.MoveTowards(m_previewCamera.transform.position, m_endPosition, cameraSpeed);
                 /*        if (Vector3.Distance(m_previewCamera.transform.position, m_endPosition) < 0.5f)
                         {
