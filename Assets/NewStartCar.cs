@@ -20,10 +20,11 @@ public class NewStartCar : MonoBehaviour, IPointerClickHandler
         carScript = GetComponent<Car>();
         //    virtualCamera.Follow = transform;
         CameraController.FollowCar(carScript);
-        foreach (var particle in particles)
+        /*foreach (var particle in particles)
         {
+            Debug.Log("asd", gameObject);
             particle.gameObject.SetActive(true);
-        }
+        }*/
         foreach (var particle in particlesDust)
         {
             particle.Play();

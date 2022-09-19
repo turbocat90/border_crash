@@ -28,21 +28,27 @@ public class Gates : MonoBehaviour
     {
         if (other.TryGetComponent(out Car car))
         {
-            Hp -= (car.mass * car.speed) / 1000;
-        }
-        Debug.Log(Hp);
-        if (Hp <= 0)
-        {
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(true);
-            /*car.speed = 0;
-            car.speedBoost = 0;*/
-            car.goToFinish = true;
-        }
-        else
-        {
-            transform.GetChild(1).gameObject.SetActive(false);
-
+            Hp -= (car.armor * car.speed) / 1000;
+            if (Hp <= 0)
+            {
+                car.isCarDestroyed = true;
+                StartCoroutine(enumerator());
+                transform.GetChild(0).gameObject.SetActive(false);
+                transform.GetChild(1).gameObject.SetActive(true);
+                /*car.speed = 0;
+                car.speedBoost = 0;*/
+            }
+            else
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+            }
         }
     }
+    IEnumerator enumerator()
+    {
+        yield return new WaitForSeconds(1f);
+        Debug.Log("23");
+        GlobalEventSystem.CompleteLvl();
+    }
+        
 }

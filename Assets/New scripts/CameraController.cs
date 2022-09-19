@@ -17,6 +17,8 @@ public static class CameraController
     }
     public static void FollowCar(Car car)
     {
+        PreviewCamera.EnabledDisable(false);
+        FollowCamera.EnabledDisable(true);
         FollowCamera.SetFollowTarget(car);
     }
 }

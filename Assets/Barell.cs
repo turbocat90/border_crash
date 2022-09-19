@@ -27,8 +27,8 @@ public class Barell : MonoBehaviour
                         rb.AddExplosionForce(expForce, transform.position, expRadius, 0, ForceMode.Impulse);
                         if (item.TryGetComponent(out Car car))
                         {
-                            car.speed -= (car.speed * speedDecrease / 10) * 1000 / car.mass;
-                            car.HP -= 1500;
+                            car.speed -= (car.speed * speedDecrease / 10) * 1000 / car.armor;
+                            car.armor -= 1500;
                         }                       
                         particleExp.Play();
                         /*Vector3 carpos = car.gameObject.transform.position;

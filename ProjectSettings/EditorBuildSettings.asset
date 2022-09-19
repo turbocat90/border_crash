@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/CAR UPGRADE.unity
+    guid: c43098a55b43e6245bba20507575ff72
+  - enabled: 1
+    path: Assets/Scenes/Lvl 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Lvl 2.unity
+    guid: 25f7a046d7066034e996c38045e4980c
+  - enabled: 1
+    path: Assets/Scenes/Lvl 3.unity
+    guid: 7e0af06e3033b7742b03463f243dc166
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

@@ -19,7 +19,7 @@ public class Oil : MonoBehaviour
     {
         if (other.TryGetComponent(out Car car))
         {
-            car.speed -= (car.speed * speedDecrease / 10) * 1000 / car.mass;
+            car.speed -= (car.speed * speedDecrease / 10) * 1000 / car.armor;
         } 
     }
     /*private void OnTriggerExit(Collider other) 
