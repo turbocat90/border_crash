@@ -36,10 +36,9 @@ public class VisualUpgrade : MonoBehaviour
     }
     public void ActiveArmorGrade(int currentArmorGrade)
     {
-        if (currentArmorGrade % 2 == 0)
+        if (currentArmorGrade <= 5)
         {
-            int a = currentArmorGrade / 2 - 1;
-            for (int i = 0; i <= a; i++)
+            for (int i = 0; i < currentArmorGrade; i++)
             {
                 armorGrade[i].SetActive(true);
             }
@@ -47,10 +46,9 @@ public class VisualUpgrade : MonoBehaviour
     }
     public void ActiveSpeedGrade(int currentSpeedGrade)
     {
-        if (currentSpeedGrade % 2 == 0)
+        if (currentSpeedGrade <= 5)
         {
-            int a = currentSpeedGrade / 2 - 1;
-            for (int i = 0; i <= a; i++)
+            for (int i = 0; i < currentSpeedGrade; i++)
             {
                 speedGrade[i].SetActive(true);
             }
