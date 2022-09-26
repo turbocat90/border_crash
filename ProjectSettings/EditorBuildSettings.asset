@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Test/Scene/Upgrade.unity
     guid: 65d438af06dee4746b732649482ad602
   - enabled: 1
-    path: Assets/Test/Scene/Lvl 1.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Test/Scene/Lvl 2.unity
     guid: 8c377a776a95ec74181c41bb79d91952
+  - enabled: 1
+    path: Assets/Test/Scene/Lvl 1.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Test/Scene/Lvl 3.unity
     guid: 12af3efefb9c93144a8bdf3cda28d9b3
