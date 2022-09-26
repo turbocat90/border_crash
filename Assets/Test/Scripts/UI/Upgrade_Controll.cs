@@ -68,6 +68,11 @@ public class Upgrade_Controll : MonoBehaviour
     private void OpenUpgradePanel(Car car) => upgrade_UI.OpenPanel(car, carsInPanel);
     private void UpgradeSpeedCar(Car car)
     {
+        for (int j = 0; j < SceneCars.instance.allCars.Count; j++)
+        {
+            if (SceneCars.instance.allCars[j].ID == car.ID)
+                SceneCars.instance.allCars[j].SpeedAndControllUpgrade();
+        }
         for (int i = 0; i < carsInPanel.Count; i++)
         {
             if(carsInPanel[i].ID == car.ID)
@@ -75,14 +80,14 @@ public class Upgrade_Controll : MonoBehaviour
             if (car_UI[i].currentCar.ID == car.ID)
                 car_UI[i].UpgradeStats();
         }
-        for (int j = 0; j < SceneCars.instance.allCars.Count; j++)
-        {
-            if (SceneCars.instance.allCars[j].ID == car.ID)
-                SceneCars.instance.allCars[j].SpeedAndControllUpgrade();
-        }
     }
     private void UpgradeArmorCar(Car car)
     {
+        for (int j = 0; j < SceneCars.instance.allCars.Count; j++)
+        {
+            if (SceneCars.instance.allCars[j].ID == car.ID)
+                SceneCars.instance.allCars[j].ArmorAndDamageUpgrade();
+        }
         for (int i = 0; i < carsInPanel.Count; i++)
         {
             if (carsInPanel[i].ID == car.ID)
@@ -90,11 +95,7 @@ public class Upgrade_Controll : MonoBehaviour
             if (car_UI[i].currentCar.ID == car.ID)
                 car_UI[i].UpgradeStats();
         }
-        for (int j = 0; j < SceneCars.instance.allCars.Count; j++)
-        {
-            if (SceneCars.instance.allCars[j].ID == car.ID)
-                SceneCars.instance.allCars[j].ArmorAndDamageUpgrade();
-        }
+       
     }
     public void StartLvl() => ActionSystem.LvlStarting();
     public void ClosePanel(GameObject panel)

@@ -42,6 +42,7 @@ public class Car_UI : MonoBehaviour
     }
     public void UpgradeStats()
     {
+        Debug.Log("currentCar.currentMaxSpeed.ToString() =  " + currentCar.currentMaxSpeed.ToString());
         car_speed.text = currentCar.currentMaxSpeed.ToString();
         car_control.text = currentCar.currentControll.ToString();
         car_armor.text = currentCar.currentArmor.ToString();
