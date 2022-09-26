@@ -9,12 +9,12 @@ EditorBuildSettings:
     path: Assets/Test/Scene/Upgrade.unity
     guid: 65d438af06dee4746b732649482ad602
   - enabled: 1
-    path: Assets/Test/Scene/Lvl 1_2.unity
+    path: Assets/Test/Scene/Lvl 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Test/Scene/Lvl 2.unity
-    guid: 794ed46a4c20d004c82dad6fda9abc0e
+    guid: 8c377a776a95ec74181c41bb79d91952
   - enabled: 1
     path: Assets/Test/Scene/Lvl 3.unity
-    guid: 05c857a90880aeb4aa9193bb93d5d558
+    guid: 12af3efefb9c93144a8bdf3cda28d9b3
   m_configObjects: {}
