@@ -54,7 +54,8 @@ public class Car : MonoBehaviour
     }
     private void Update()
     {
-        m_rotateDirection = Input.GetAxisRaw("Horizontal");
+        if (carIsActive)
+            m_rotateDirection = Input.GetAxisRaw("Horizontal");
     }
     private void FixedUpdate()
     {
@@ -134,7 +135,7 @@ public class Car : MonoBehaviour
             currentSpeed += currentAcceleration * Time.fixedDeltaTime;
         }
         transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.Space) && currentSpeed > 0)
+        if (Input.GetKey(KeyCode.Space) && currentSpeed > 0 || currentSpeed > 0 && touchController.braking)
         {
             currentSpeed -= currentSpeed * 0.1f;
         }
@@ -167,9 +168,11 @@ public class Car : MonoBehaviour
     }
     public void StartCar()
     {
+        currentSpeed = baseSpeed;
         HP = currentArmor;
         carIsActive = true;
         visualUpgrade.StartMovingParcticle();
+        touchController.StartTouch();
     }
     public float GetDamage() => currentMass * currentSpeed / 1000;
     public void StopCar()
@@ -181,7 +184,6 @@ public class Car : MonoBehaviour
     }
     public void FInishLvl()
     {
-        currentSpeed = baseSpeed;
         ActionSystem.CarFinished();
     }
     public void LvlComplete()
