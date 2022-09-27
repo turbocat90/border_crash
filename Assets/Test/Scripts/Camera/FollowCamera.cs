@@ -5,9 +5,10 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private float smoothRateFOV;
-    [SerializeField] private float cameraSpeed;
+    private float cameraSpeed = 0;
+    private float minFOV = 30, maxFOV = 60;
     private float m_offset_X = 0f;
-    private float m_offset_Z = -30f;
+    public float m_offset_Z = 32f;
     private float m_velocity = 0;
     private Vector3 m_velocityV;
     private Vector3 m_target;
@@ -31,11 +32,18 @@ public class FollowCamera : MonoBehaviour
              m_target = new Vector3(m_followTarget.gameObject.transform.position.x + offset_X, transform.position.y, m_followTarget.gameObject.transform.position.z + offset_Z);
  */
             // new method
-            Vector3 carpos = new Vector3(m_followTarget.gameObject.transform.position.x + m_offset_X, transform.position.y, m_followTarget.gameObject.transform.position.z + m_offset_Z);
-            transform.position = Vector3.SmoothDamp(transform.position, carpos, ref m_velocityV, smoothRateFOV);
+            Vector3 carpos = new Vector3(m_followTarget.gameObject.transform.position.x + m_offset_X, transform.position.y, m_followTarget.gameObject.transform.position.z - m_offset_Z);
+            transform.position = Vector3.SmoothDamp(transform.position, carpos, ref m_velocityV, cameraSpeed);
+
+
+
+            m_offset_Z = 50 - (m_mainCamera.fieldOfView / 2);
 
             float targetFOV = 28 + m_followTarget.currentSpeed * 0.5f;
-            m_mainCamera.fieldOfView = Mathf.SmoothDamp(m_mainCamera.fieldOfView, targetFOV, ref m_velocity, smoothRateFOV);
+            m_mainCamera.fieldOfView = Mathf.Clamp(Mathf.SmoothDamp(m_mainCamera.fieldOfView, targetFOV, ref m_velocity, smoothRateFOV),minFOV, maxFOV);
+
+
+
             currentFOV = m_mainCamera.fieldOfView;
         }
     }
