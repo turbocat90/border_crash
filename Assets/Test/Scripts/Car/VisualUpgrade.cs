@@ -11,7 +11,8 @@ public class VisualUpgrade : MonoBehaviour
     [Header("Particles")]
     [SerializeField] private List<ParticleSystem> movingParticle;
     [SerializeField] private List<ParticleSystem> deathParticle;
-    [SerializeField] private List<ParticleSystem> maxSpeedGradeParticle;
+    [SerializeField] private List<ParticleSystem> speedGradeParticle;
+    [SerializeField] private int speedGradeToStartParticle = 0;
 
     public void StartMovingParcticle()
     {
@@ -52,13 +53,16 @@ public class VisualUpgrade : MonoBehaviour
             {
                 speedGrade[i].SetActive(true);
             }
-        }
-        if(currentSpeedGrade == 10 && maxSpeedGradeParticle.Count != 0)
+        }     
+    }
+    public void StartSpeedGradeParticle(int currentSpeedGrade)
+    {
+        if (currentSpeedGrade >= speedGradeToStartParticle && speedGradeParticle.Count != 0)
         {
-            foreach(var item in maxSpeedGradeParticle)
+            foreach (var item in speedGradeParticle)
             {
                 item.gameObject.SetActive(true);
             }
-        }      
+        }
     }
 }

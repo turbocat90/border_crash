@@ -172,6 +172,7 @@ public class Car : MonoBehaviour
         HP = currentArmor;
         carIsActive = true;
         visualUpgrade.StartMovingParcticle();
+        visualUpgrade.StartSpeedGradeParticle(currentSpeedAndControllGrade);
         touchController.StartTouch();
     }
     public float GetDamage() => currentMass * currentSpeed / 1000;
