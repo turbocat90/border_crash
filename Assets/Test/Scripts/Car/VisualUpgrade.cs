@@ -14,6 +14,8 @@ public class VisualUpgrade : MonoBehaviour
     [SerializeField] private List<ParticleSystem> speedGradeParticle;
     [SerializeField] private int speedGradeToStartParticle = 0;
 
+    private int currentSpeedGrade = 0;
+    private List<ParticleSystem> SpeedParticles = new List<ParticleSystem>();
     public void StartMovingParcticle()
     {
         foreach (var item in movingParticle)
@@ -54,6 +56,7 @@ public class VisualUpgrade : MonoBehaviour
                 speedGrade[i].SetActive(true);
             }
         }     
+        
     }
     public void StartSpeedGradeParticle(int currentSpeedGrade)
     {
@@ -64,5 +67,46 @@ public class VisualUpgrade : MonoBehaviour
                 item.gameObject.SetActive(true);
             }
         }
+        this.currentSpeedGrade = currentSpeedGrade;
+    }
+    public void PlayParticlesInGame(TypeCar typcar)
+    {
+        if(typcar == TypeCar.Buggy)
+        {
+            if (currentSpeedGrade > 0 && currentSpeedGrade < 3)
+                speedGradeParticle[0].Play();
+            else if (currentSpeedGrade >= 3 && currentSpeedGrade < 5)
+            {
+                speedGradeParticle[0].Play();
+                speedGradeParticle[1].Play();
+            }
+            else if(currentSpeedGrade >= 5 )
+            {
+                speedGradeParticle[0].Play();
+                speedGradeParticle[1].Play();
+                speedGradeParticle[2].Play();
+            }
+        }
+        else if( typcar == TypeCar.Tractor)
+            speedGradeParticle[0].Play();
+        else if( typcar == TypeCar.Rally)
+        {
+            if(currentSpeedGrade > 0 && currentSpeedGrade < 5)
+                speedGradeParticle[0].Play();
+            else if (currentSpeedGrade >= 5)
+            {
+                speedGradeParticle[0].Play();
+                speedGradeParticle[1].Play();
+                speedGradeParticle[2].Play();
+            }
+        }
+        else if(typcar == TypeCar.Rodfor)
+        {
+            speedGradeParticle[0].Play();
+            speedGradeParticle[1].Play();
+
+        }
+        else if (typcar == TypeCar.Hill_Climber)
+            speedGradeParticle[0].Play();
     }
 }

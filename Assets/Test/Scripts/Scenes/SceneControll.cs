@@ -49,9 +49,25 @@ public class SceneControll : MonoBehaviour
             item.StopCar();
             item.gameObject.SetActive(true);
             item.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-            item.gameObject.transform.position = new Vector3(0,-100,0);
+            item.gameObject.transform.position = new Vector3(0, -100, 0);
         }
         SceneCars.instance.carsInGame.Clear();
         SceneManager.LoadScene(0);
+    }
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus)
+        {
+            ApplicationQuit();
+        }
+    }
+    private void ApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
+        Application.Quit();
+    }
+    private void OnApplicationQuit()
+    {
+        ApplicationQuit();
     }
 }

@@ -38,9 +38,19 @@ public class Upgrade_UI : MonoBehaviour
             if (item.ID == car.ID)
             {
                 item.gameObject.SetActive(true);
+                for (int i = 0; i < car.currentSpeedAndControllGrade; i++)
+                {
+                    item.SpeedAndControllUpgrade();
+                }
+                for (int i = 0; i < car.currentArmorAndHpGrade; i++)
+                {
+                    item.ArmorAndDamageUpgrade();
+                }
                 return;
+
             }    
         }
+      
     }
     public void ChoosedCars(int currentCars, int maxCars)
     {

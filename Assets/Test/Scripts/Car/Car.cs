@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Car : MonoBehaviour
 {
+    public TypeCar typeCar;
     [Header("Base Settings")]
     public string CarName;
     public int ID;
@@ -49,7 +50,7 @@ public class Car : MonoBehaviour
     private void Awake()
     {
         Initialise();
-        if(rb!= null)
+        if (rb != null)
             rb.mass = currentMass / 100;
     }
     private void Update()
@@ -174,6 +175,7 @@ public class Car : MonoBehaviour
         visualUpgrade.StartMovingParcticle();
         visualUpgrade.StartSpeedGradeParticle(currentSpeedAndControllGrade);
         touchController.StartTouch();
+        visualUpgrade.PlayParticlesInGame(typeCar);
     }
     public float GetDamage() => currentMass * currentSpeed / 1000;
     public void StopCar()
@@ -200,4 +202,13 @@ public class Car : MonoBehaviour
 
     }
     public void Skidding() => rb.AddForce(transform.forward * currentSpeed / 2, ForceMode.VelocityChange);
+}
+
+public enum TypeCar
+{
+    Buggy,
+    Tractor,
+    Rally,
+    Rodfor,
+    Hill_Climber
 }
