@@ -32,6 +32,8 @@ public class Car : MonoBehaviour
     public float currentMass { get; set; }
     public float currentArmor { get; set; }
     public float currentControll { get; set; }
+    public bool carIsActive { get; set; } = false;
+
     public int currentSpeedAndControllGrade = 0; //  { get; set; } = 0;
     public int currentArmorAndHpGrade = 0; // { get; set; } = 0;
     [Space]
@@ -41,10 +43,9 @@ public class Car : MonoBehaviour
     [SerializeField] private TouchController touchController;
     private float m_rotateDirection;
     private float m_rotateSpeed = 1;
-    private int maxArmorAndHpGrade = 10;
-    private int maxSpeedAndControllGrade = 10;
+    private int maxArmorAndHpGrade = 5;
+    private int maxSpeedAndControllGrade = 5;
     private float HP;
-    private bool carIsActive = false;
 
 
     private void Awake()
@@ -181,8 +182,6 @@ public class Car : MonoBehaviour
     public void StopCar()
     {
         visualUpgrade.StopMovingParticles();
-        /*currentSpeed = 0;
-        currentAcceleration = 0;*/
         carIsActive = false;
     }
     public void FInishLvl()
