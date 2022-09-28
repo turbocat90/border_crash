@@ -8,6 +8,7 @@ public class TrapTypeEditor : Editor
     SerializedProperty Type;
     SerializedProperty PuddledegreeOfStrength;
     SerializedProperty OildegreeOfStrength;
+    SerializedProperty ZombiedegreeOfStrength;
     SerializedProperty LittleRockdegreeOfStrength;
     SerializedProperty LittleRockDamage;
     SerializedProperty LittleRockHP;
@@ -27,6 +28,7 @@ public class TrapTypeEditor : Editor
         Type = serializedObject.FindProperty("trap");
         PuddledegreeOfStrength = serializedObject.FindProperty("PuddledegreeOfStrength");
         OildegreeOfStrength = serializedObject.FindProperty("OildegreeOfStrength");
+        ZombiedegreeOfStrength = serializedObject.FindProperty("ZombiedegreeOfStrength");
         LittleRockdegreeOfStrength = serializedObject.FindProperty("LittleRockdegreeOfStrength");
         LittleRockHP = serializedObject.FindProperty("LittleRockHP");
         LittleRockDamage = serializedObject.FindProperty("LittleRockDamage");
@@ -88,6 +90,11 @@ public class TrapTypeEditor : Editor
             EditorGUILayout.PropertyField(BetondegreeOfStrength);
             EditorGUILayout.PropertyField(BetonDamage);
             EditorGUILayout.PropertyField(BetonHP);
+        }
+        EditorGUILayout.Space();
+        if (Type.enumValueIndex == (int)TypeTrap.Zombie)
+        {
+            EditorGUILayout.PropertyField(ZombiedegreeOfStrength);
         }
 
         serializedObject.ApplyModifiedProperties();
