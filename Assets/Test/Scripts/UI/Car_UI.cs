@@ -11,16 +11,17 @@ public class Car_UI : MonoBehaviour
     [SerializeField] private Text car_armor;
     [SerializeField] private Text car_damage;
     [SerializeField] private GameObject choosed_btn;
+    [SerializeField] private GameObject choosePanel;
     public bool CanAdd { get; set; } = true;
     public Car currentCar { get; set; }
 
     public void Initialise(Car car)
     {
         car_name.text = car.CarName;
-        car_speed.text = car.currentMaxSpeed.ToString();
-        car_control.text = car.currentControll.ToString();
+        car_speed.text = car.currentMaxSpeed.ToString() + " m/h";
+        car_control.text = car.currentRotateAngle.ToString() + "°";
         car_armor.text = car.currentArmor.ToString();
-        car_damage.text = car.currentMass.ToString();
+        car_damage.text = car.currentMass.ToString() + " kg";
         currentCar = car;
     }
     public void AddCar()
@@ -39,13 +40,13 @@ public class Car_UI : MonoBehaviour
     public void Upgrade()
     {
         ActionSystem.OpenUpgradePanel(currentCar);
+        choosePanel.SetActive(false);
     }
     public void UpgradeStats()
     {
-        Debug.Log("currentCar.currentMaxSpeed.ToString() =  " + currentCar.currentMaxSpeed.ToString());
-        car_speed.text = currentCar.currentMaxSpeed.ToString();
-        car_control.text = currentCar.currentControll.ToString();
+        car_speed.text = currentCar.currentMaxSpeed.ToString() + " m/h";
+        car_control.text = currentCar.currentRotateAngle.ToString() + "°";
         car_armor.text = currentCar.currentArmor.ToString();
-        car_damage.text = currentCar.currentMass.ToString();
+        car_damage.text = currentCar.currentMass.ToString() + " kg";
     }
 }

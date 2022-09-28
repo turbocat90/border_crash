@@ -33,6 +33,8 @@ public class Car : MonoBehaviour
     public float currentArmor { get; set; }
     public float currentControll { get; set; }
     public bool carIsActive { get; set; } = false;
+    public int maxArmorAndHpGrade { get; set; } = 5;
+    public int maxSpeedAndControllGrade { get; set; }  = 5;
 
     public int currentSpeedAndControllGrade = 0; //  { get; set; } = 0;
     public int currentArmorAndHpGrade = 0; // { get; set; } = 0;
@@ -41,10 +43,9 @@ public class Car : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private VisualUpgrade visualUpgrade;
     [SerializeField] private TouchController touchController;
+    [SerializeField] private Wheel wheel;
     private float m_rotateDirection;
     private float m_rotateSpeed = 1;
-    private int maxArmorAndHpGrade = 5;
-    private int maxSpeedAndControllGrade = 5;
     private float HP;
 
 
@@ -177,12 +178,14 @@ public class Car : MonoBehaviour
         visualUpgrade.StartSpeedGradeParticle(currentSpeedAndControllGrade);
         touchController.StartTouch();
         visualUpgrade.PlayParticlesInGame(typeCar);
+        wheel.StartRotate(true);
     }
     public float GetDamage() => currentMass * currentSpeed / 1000;
     public void StopCar()
     {
         visualUpgrade.StopMovingParticles();
         carIsActive = false;
+        wheel.StartRotate(false);
     }
     public void FInishLvl()
     {

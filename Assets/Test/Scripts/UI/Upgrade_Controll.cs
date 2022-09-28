@@ -7,12 +7,9 @@ public class Upgrade_Controll : MonoBehaviour
     [SerializeField] private Upgrade_UI upgrade_UI;
     [SerializeField] private List<Car_UI> car_UI;
     [SerializeField] private List<Car> carsInPanel;
+    [SerializeField] private GameObject choosePanel;
     private int currentCars;
     private int maxCars;
-    private void Awake()
-    {
-
-    }
     private void Start()
     {
         currentCars = 0;
@@ -100,6 +97,7 @@ public class Upgrade_Controll : MonoBehaviour
     public void StartLvl() => ActionSystem.LvlStarting();
     public void ClosePanel(GameObject panel)
     {
+        choosePanel.SetActive(true);
         panel.SetActive(false);
     }
 }
