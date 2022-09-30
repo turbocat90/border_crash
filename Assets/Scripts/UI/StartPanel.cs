@@ -8,10 +8,10 @@ public class StartPanel : MonoBehaviour
     public GameObject LogoPanel;
     private void Awake()
     {
-        if (PlayerPrefs.HasKey("LvlPanel"))
+      /*  if (PlayerPrefs.HasKey("LvlPanel"))
             LogoPanel.SetActive(false);
         else
-            LogoPanel.SetActive(true);
+            LogoPanel.SetActive(true);*/
     }
     public void CloseStartPanel(GameObject startPanel)
     {

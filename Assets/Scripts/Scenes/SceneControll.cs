@@ -35,14 +35,14 @@ public class SceneControll : MonoBehaviour
     }
     public void StartCurrentScene()
     {
-        SceneManager.LoadScene(currentLvl + 1);
+        SceneManager.LoadScene(currentLvl + 2);
         EventControll.instance.DeactivateEvent();
         for (int i = 0; i < LvLPoints.instance.Lvl[currentLvl].Position.Count; i++)
         {
             SceneCars.instance.carsInGame[i].transform.position = LvLPoints.instance.Lvl[currentLvl].Position[i];
         }
     }
-    public void StartGarageScene()
+    public void StartMapScene()
     {
         foreach (var item in SceneCars.instance.allCars)
         {
@@ -53,6 +53,10 @@ public class SceneControll : MonoBehaviour
         }
         SceneCars.instance.carsInGame.Clear();
         SceneManager.LoadScene(0);
+    }
+    public void StartGarageScene()
+    {
+        SceneManager.LoadScene(1);
     }
     private void OnApplicationFocus(bool focus)
     {

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChooseCar_UI : MonoBehaviour
 {
     [SerializeField] private Text canisterText;
+    [SerializeField] private Text canisterText_plus;
     [SerializeField] Image bar;
     private int canister;
     private float fill = 1;
@@ -17,7 +18,10 @@ public class ChooseCar_UI : MonoBehaviour
     public void UpgradeStats()
     {
         canister = Currency.Canister;
-        canisterText.text = Currency.Canister.ToString();
+        if(canister <= 50 )
+            canisterText.text = Currency.Canister.ToString();
+        else if (canister > 50)
+            canisterText.text = 50.ToString();
         if (canister < fullCanister)
         {
             fill = canister / fullCanister;
@@ -26,6 +30,13 @@ public class ChooseCar_UI : MonoBehaviour
         }
         else
             bar.fillAmount = 1;
+        if(canister > 50 )
+        {
+            canisterText_plus.gameObject.SetActive(true);
+            canisterText_plus.text = "+" + (canister - 50).ToString();
+        }
+        else
+            canisterText_plus.gameObject.SetActive(false);
     }
     public void ActivateEvent()
     {

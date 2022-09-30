@@ -128,6 +128,7 @@ public class Hedgehog : MonoBehaviour
                 if (other.TryGetComponent(out Rigidbody rb))
                 {
                     rb.AddExplosionForce(BarellExpForce, transform.position, 0, 0, ForceMode.Impulse);
+                    SetTextValue(500);
                     BarellParticleExp.Play();
                     StartCoroutine(DelayDestroy());
                 }
@@ -136,9 +137,12 @@ public class Hedgehog : MonoBehaviour
         if (trap == TypeTrap.Zombie)
         {
             ActionSystem.AddParts(ZombieParts);
-            SetTextValue(ZombieParts);
+           
             if (other.TryGetComponent(out Car car))
+            {
+                SetTextValue(ZombieParts);
                 car.TakeDamage(ZombiedegreeOfStrength, ZombieDamage);
+            }
         }
     }
     IEnumerator DelayDestroy()
@@ -149,7 +153,12 @@ public class Hedgehog : MonoBehaviour
     public void SetTextValue(int value)
     {
         Debug.Log(value);
-        this.value.text = value.ToString();
+        if (this.value != null)
+        {
+            this.value.text = value.ToString();
+            this.value.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        
         animator.SetTrigger("StartText");
     }
 }
