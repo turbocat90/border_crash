@@ -20,17 +20,20 @@ public class Upgrade_UI : MonoBehaviour
     [SerializeField] private Text choosedCars;
     [SerializeField] GameObject startLvl_btn;
     [Space]
+    [SerializeField] private List<int> upgradePrice;
+    [Space]
     [Header("Upgrade Particles")]
     [SerializeField] private List<ParticleSystem> upgradeParticle;
     public Car currentCar;
     public void OpenPanel(Car car, List<Car> carsInPanel)
     {
         upgradePanel.SetActive(true);
-        // currency.text = ценник
+        currency.text = Currency.Parts.ToString();
         carName.text = car.CarName;
         speedValue.text = car.currentMaxSpeed.ToString() + " m/h";
         controlValue.text = car.currentRotateAngle.ToString() + "°";
-        // speedUpgradePrice.text = цена апгрейда
+        speedUpgradePrice.text = (car.CarMultiplier * upgradePrice[car.currentSpeedAndControllGrade]).ToString();
+        armorUpgradePrice.text = (car.CarMultiplier * upgradePrice[car.currentArmorAndHpGrade]).ToString();
         armorValue.text = car.currentArmor.ToString();
         damageValue.text = car.currentMass.ToString();
         foreach (var item in carsInPanel)
@@ -54,10 +57,8 @@ public class Upgrade_UI : MonoBehaviour
                 }
                 item.GetVisualUpgrade().PlayParticlesInGame(item.typeCar, item.currentSpeedAndControllGrade);
                 return;
-            }    
+            }
         }
-        // armorUpgradePrice.text = цена апгрейда
-      
     }
     public void ChoosedCars(int currentCars, int maxCars)
     {
@@ -69,8 +70,10 @@ public class Upgrade_UI : MonoBehaviour
     }
     public void UpgradeSpeedCar()
     {
-        if (currentCar != null && currentCar.currentSpeedAndControllGrade < currentCar.maxSpeedAndControllGrade)
+        if (currentCar != null && currentCar.currentSpeedAndControllGrade < currentCar.maxSpeedAndControllGrade && Currency.Parts >= currentCar.CarMultiplier * upgradePrice[currentCar.currentSpeedAndControllGrade])
         {
+            Currency.SpendParts(currentCar.CarMultiplier * upgradePrice[currentCar.currentSpeedAndControllGrade]);
+            Currency.SaveParts();
             ActionSystem.OnUpgradeSpeedCar(currentCar);
             UpgradeStats();
             StartParticles();
@@ -79,8 +82,10 @@ public class Upgrade_UI : MonoBehaviour
     }
     public void UpgradeArmorCar()
     {
-        if (currentCar != null && currentCar.currentArmorAndHpGrade < currentCar.maxArmorAndHpGrade)
+        if (currentCar != null && currentCar.currentArmorAndHpGrade < currentCar.maxArmorAndHpGrade && Currency.Parts >= currentCar.CarMultiplier * upgradePrice[currentCar.currentArmorAndHpGrade])
         {
+            Currency.SpendParts(currentCar.CarMultiplier * upgradePrice[currentCar.currentSpeedAndControllGrade]);
+            Currency.SaveParts();
             ActionSystem.OnUpgradeArmorCar(currentCar);
             UpgradeStats();
             StartParticles();
@@ -88,13 +93,13 @@ public class Upgrade_UI : MonoBehaviour
     }
     private void UpgradeStats()
     {
-        // currency.text = ценник
+        currency.text = Currency.Parts.ToString();
         speedValue.text = currentCar.currentMaxSpeed.ToString() + " m/h";
         controlValue.text = currentCar.currentRotateAngle.ToString() + "°";
-        // speedUpgradePrice.text = цена апгрейда
+        speedUpgradePrice.text = (currentCar.CarMultiplier * upgradePrice[currentCar.currentSpeedAndControllGrade]).ToString();
         armorValue.text = currentCar.currentArmor.ToString();
         damageValue.text = currentCar.currentMass.ToString();
-        // armorUpgradePrice.text = цена апгрейда
+        armorUpgradePrice.text = (currentCar.CarMultiplier * upgradePrice[currentCar.currentArmorAndHpGrade]).ToString();
     }
     private void StartParticles()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class Hedgehog : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Hedgehog : MonoBehaviour
     [Range(0,9)] public int FencedegreeOfStrength;
     [Range(0,9)] public int BetondegreeOfStrength;
     [Range(0,9)] public int ZombiedegreeOfStrength;
+    public TextMeshPro value;
+    public Animator animator;
     public int LittleRockDamage;
     public int TreeDamage;
     public int BarrelDamage;
@@ -22,6 +25,7 @@ public class Hedgehog : MonoBehaviour
     public float FenceHP;
     public float BetonHP;
     public float LittleRockHP;
+    public int ZombieParts;
     public ParticleSystem BarellParticleExp;
     public TypeTrap trap;
     private int PuddleDamage = 0;
@@ -42,31 +46,67 @@ public class Hedgehog : MonoBehaviour
                 car.Skidding();
             if (trap == TypeTrap.LittleRock)
             {
-                car.TakeDamage(LittleRockdegreeOfStrength, PuddleDamage);
-                LittleRockHP -= car.GetDamage();
-                if (LittleRockHP <= 0)
+                if (car.GetDamage() >= LittleRockHP)
+                {
+                    car.TakeDamage(LittleRockdegreeOfStrength, PuddleDamage);
+                    ActionSystem.AddParts((int)LittleRockHP);
+                    SetTextValue((int)LittleRockHP);
                     gameObject.SetActive(false);
+                }
+                else
+                {
+                    LittleRockHP -= car.GetDamage();
+                    ActionSystem.AddParts((int)car.GetDamage());
+                    SetTextValue((int)car.GetDamage());
+                }
             }
             if (trap == TypeTrap.Tree)
             {
-                car.TakeDamage(TreedegreeOfStrength, TreeDamage);
-                TreeHP -= car.GetDamage();
-                if (TreeHP <= 0)
+                if (car.GetDamage() >= TreeHP)
+                {
+                    car.TakeDamage(TreedegreeOfStrength, TreeDamage);
+                    ActionSystem.AddParts((int)TreeHP);
+                    SetTextValue((int)TreeHP);
                     gameObject.SetActive(false);
+                }
+                else
+                {
+                    TreeHP -= car.GetDamage();
+                    ActionSystem.AddParts((int)car.GetDamage());
+                    SetTextValue((int)car.GetDamage());
+                }
             }
             if (trap == TypeTrap.Fence)
             {
-                car.TakeDamage(FencedegreeOfStrength, FenceDamage);
-                FenceHP -= car.GetDamage();
-                if (FenceHP <= 0)
+                if (car.GetDamage() >= FenceHP)
+                {
+                    car.TakeDamage(FencedegreeOfStrength, FenceDamage);
+                    ActionSystem.AddParts((int)FenceHP);
+                    SetTextValue((int)FenceHP);
                     gameObject.SetActive(false);
+                }
+                else
+                {
+                    FenceHP -= car.GetDamage();
+                    ActionSystem.AddParts((int)car.GetDamage());
+                    SetTextValue((int)car.GetDamage());
+                }
             }
             if (trap == TypeTrap.Beton)
             {
-                car.TakeDamage(BetondegreeOfStrength, BetonDamage);
-                BetonHP -= car.GetDamage();
-                if (BetonHP <= 0)
+                if (car.GetDamage() >= BetonHP)
+                {
+                    car.TakeDamage(BetondegreeOfStrength, BetonDamage);
+                    ActionSystem.AddParts((int)BetonHP);
+                    SetTextValue((int)BetonHP);
                     gameObject.SetActive(false);
+                }
+                else
+                {
+                    BetonHP -= car.GetDamage();
+                    ActionSystem.AddParts((int)car.GetDamage());
+                    SetTextValue((int)car.GetDamage());
+                }
             }
         }
     }
@@ -95,6 +135,8 @@ public class Hedgehog : MonoBehaviour
         }
         if (trap == TypeTrap.Zombie)
         {
+            ActionSystem.AddParts(ZombieParts);
+            SetTextValue(ZombieParts);
             if (other.TryGetComponent(out Car car))
                 car.TakeDamage(ZombiedegreeOfStrength, ZombieDamage);
         }
@@ -103,6 +145,12 @@ public class Hedgehog : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
+    }
+    public void SetTextValue(int value)
+    {
+        Debug.Log(value);
+        this.value.text = value.ToString();
+        animator.SetTrigger("StartText");
     }
 }
 [Serializable]

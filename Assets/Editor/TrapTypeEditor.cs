@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
+
 [CustomEditor(typeof(Hedgehog))]
 public class TrapTypeEditor : Editor
 {
@@ -23,6 +25,9 @@ public class TrapTypeEditor : Editor
     SerializedProperty BetondegreeOfStrength;
     SerializedProperty BetonDamage;
     SerializedProperty BetonHP;
+    SerializedProperty ZombieParts;
+    SerializedProperty value;
+    SerializedProperty animator;
     private void OnEnable()
     {
         Type = serializedObject.FindProperty("trap");
@@ -43,6 +48,9 @@ public class TrapTypeEditor : Editor
         BetondegreeOfStrength = serializedObject.FindProperty("BetondegreeOfStrength");
         BetonDamage = serializedObject.FindProperty("BetonDamage");
         BetonHP = serializedObject.FindProperty("BetonHP");
+        value = serializedObject.FindProperty("value");
+        animator = serializedObject.FindProperty("animator");
+        ZombieParts = serializedObject.FindProperty("ZombieParts");
     }
     public override void OnInspectorGUI()
     {
@@ -96,7 +104,13 @@ public class TrapTypeEditor : Editor
         {
             EditorGUILayout.PropertyField(ZombiedegreeOfStrength);
         }
+        if (Type.enumValueIndex == (int)TypeTrap.Zombie)
+        {
+            EditorGUILayout.PropertyField(ZombieParts);
+        }
 
+        EditorGUILayout.PropertyField(value);
+        EditorGUILayout.PropertyField(animator);
         serializedObject.ApplyModifiedProperties();
     }
 }

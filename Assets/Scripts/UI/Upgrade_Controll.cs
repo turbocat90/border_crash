@@ -38,9 +38,9 @@ public class Upgrade_Controll : MonoBehaviour
     {
         currentCars++;
         upgrade_UI.ChoosedCars(currentCars, maxCars);
-        if(currentCars == maxCars)
+        if (currentCars == maxCars)
         {
-            foreach(Car_UI ui in car_UI)
+            foreach (Car_UI ui in car_UI)
             {
                 ui.CanAdd = false;
             }
@@ -50,7 +50,7 @@ public class Upgrade_Controll : MonoBehaviour
     {
         currentCars--;
         upgrade_UI.ChoosedCars(currentCars, maxCars);
-        foreach(Car_UI ui in car_UI)
+        foreach (Car_UI ui in car_UI)
         {
             ui.CanAdd = true;
         }
@@ -72,7 +72,7 @@ public class Upgrade_Controll : MonoBehaviour
         }
         for (int i = 0; i < carsInPanel.Count; i++)
         {
-            if(carsInPanel[i].ID == car.ID)
+            if (carsInPanel[i].ID == car.ID)
                 carsInPanel[i].SpeedAndControllUpgrade();
             if (car_UI[i].currentCar.ID == car.ID)
                 car_UI[i].UpgradeStats();
@@ -92,9 +92,13 @@ public class Upgrade_Controll : MonoBehaviour
             if (car_UI[i].currentCar.ID == car.ID)
                 car_UI[i].UpgradeStats();
         }
-       
+
     }
-    public void StartLvl() => ActionSystem.LvlStarting();
+    public void StartLvl()
+    {
+        ActionSystem.LvlStarting();
+        Currency.SpendCanister(1);
+    }
     public void ClosePanel(GameObject panel)
     {
         choosePanel.SetActive(true);

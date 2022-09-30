@@ -53346,6 +53346,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f6db396e2236ee4084150442e66c4f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8983985803167059801}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f6db396e2236ee4084150442e66c4f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1616328050115500497}
   m_SourcePrefab: {fileID: 100100000, guid: 1f6db396e2236ee4084150442e66c4f3, type: 3}
 --- !u!1 &7441451944318515886 stripped
 GameObject:
@@ -53402,6 +53405,40 @@ MonoBehaviour:
   - {fileID: 6779360011944676529}
   - {fileID: 2522180441628549013}
   navaMeshAge: {fileID: 7747370913749926230}
+--- !u!114 &2468551478886931867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441451944318515886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2896b25565c2d428112b5c244f727a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PuddledegreeOfStrength: 1
+  OildegreeOfStrength: 0
+  LittleRockdegreeOfStrength: 0
+  TreedegreeOfStrength: 0
+  FencedegreeOfStrength: 0
+  BetondegreeOfStrength: 0
+  ZombiedegreeOfStrength: 1
+  value: {fileID: 1616328050115500503}
+  animator: {fileID: 1616328050115500496}
+  LittleRockDamage: 0
+  TreeDamage: 0
+  BarrelDamage: 0
+  FenceDamage: 0
+  BetonDamage: 0
+  BarellExpForce: 0
+  TreeHP: 0
+  FenceHP: 0
+  BetonHP: 0
+  LittleRockHP: 0
+  ZombieParts: 100
+  BarellParticleExp: {fileID: 0}
+  trap: 8
 --- !u!195 &7747370913286849654
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -53424,39 +53461,128 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2468551478886931867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7441451944318515886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae2896b25565c2d428112b5c244f727a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PuddledegreeOfStrength: 0
-  OildegreeOfStrength: 0
-  LittleRockdegreeOfStrength: 0
-  TreedegreeOfStrength: 0
-  FencedegreeOfStrength: 0
-  BetondegreeOfStrength: 0
-  ZombiedegreeOfStrength: 1
-  LittleRockDamage: 0
-  TreeDamage: 0
-  BarrelDamage: 0
-  FenceDamage: 0
-  BetonDamage: 0
-  BarellExpForce: 0
-  TreeHP: 0
-  FenceHP: 0
-  BetonHP: 0
-  LittleRockHP: 0
-  BarellParticleExp: {fileID: 0}
-  trap: 8
 --- !u!4 &7786312200960794644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1f6db396e2236ee4084150442e66c4f3, type: 3}
   m_PrefabInstance: {fileID: 7747370911953815551}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8451465691527209784
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 7786312200960794644}
+    m_Modifications:
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7660445
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.6427876
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144954798104853228, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+      propertyPath: m_Name
+      value: Text (TMP)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+--- !u!95 &1616328050115500496 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7144954798104853224, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+  m_PrefabInstance: {fileID: 8451465691527209784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1616328050115500497 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7144954798104853225, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+  m_PrefabInstance: {fileID: 8451465691527209784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1616328050115500503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7144954798104853231, guid: fff7b9715ed3a7049b6af92db8363dd9, type: 3}
+  m_PrefabInstance: {fileID: 8451465691527209784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

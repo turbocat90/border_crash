@@ -24,6 +24,7 @@ public class Car : MonoBehaviour
     [SerializeField] private float damageGradePercent;
     [SerializeField] private float controllGradePercent;
 
+    public int CarMultiplier;
     public float currentSpeed { get; set; }
     public float currentAcceleration { get; set; }
     public float currentMaxSpeed { get; set; }
@@ -34,7 +35,7 @@ public class Car : MonoBehaviour
     public float currentControll { get; set; }
     public bool carIsActive { get; set; } = false;
     public int maxArmorAndHpGrade { get; set; } = 5;
-    public int maxSpeedAndControllGrade { get; set; }  = 5;
+    public int maxSpeedAndControllGrade { get; set; } = 5;
 
     public int currentSpeedAndControllGrade = 0; //  { get; set; } = 0;
     public int currentArmorAndHpGrade = 0; // { get; set; } = 0;

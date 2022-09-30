@@ -24,6 +24,7 @@ public class ZombieVisual : MonoBehaviour
         {
             item.Play();
         }
+        StartCoroutine(DeathDelay());
     }
 
     private void OnTriggerEnter(Collider collision)

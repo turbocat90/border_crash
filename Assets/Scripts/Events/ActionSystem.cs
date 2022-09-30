@@ -13,6 +13,8 @@ public class ActionSystem
     public static Action<Car> OnUpgradeArmorCar;
     public static Action OnLvlStarting;
     public static Action OnCarFinished;
+    public static Action OnAddCanister;
+    public static Action <int> OnAddParts;
 
 
 
@@ -24,6 +26,6 @@ public class ActionSystem
     public static void UpgradeArmorCar(Car car) => OnUpgradeArmorCar?.Invoke(car);
     public static void LvlStarting() => OnLvlStarting?.Invoke();
     public static void CarFinished() => OnCarFinished?.Invoke();
-
-        
+    public static void AddCanister() => OnAddCanister?.Invoke();  
+    public static void AddParts(int value) => OnAddParts?.Invoke(value);  
 }
