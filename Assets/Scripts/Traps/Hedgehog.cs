@@ -156,7 +156,7 @@ public class Hedgehog : MonoBehaviour
         if (this.value != null)
         {
             this.value.text = value.ToString();
-            this.value.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            this.value.gameObject.transform.rotation = Quaternion.Euler(80, 0, 0);
         }
         
         animator.SetTrigger("StartText");
