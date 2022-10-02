@@ -78,7 +78,6 @@ public class Car : MonoBehaviour
             currentAcceleration += (baseAcceleration / 100) * speedGradePercent;
             currentMaxSpeed += (baseMaxSpeed / 100) * speedGradePercent;
             currentRotateAngle += (baseRotateAngle / 100) * speedGradePercent;
-            // добавить контроль
             visualUpgrade.ActiveSpeedGrade(currentSpeedAndControllGrade);
         }
     }
@@ -160,7 +159,7 @@ public class Car : MonoBehaviour
     }
     public void DestroyCar()
     {
-        visualUpgrade.StartDeathParticle(); //активация партиклов смерти
+        visualUpgrade.StartDeathParticle();
         StopCar();
         StartCoroutine(DeathDelay());
     }
@@ -198,8 +197,13 @@ public class Car : MonoBehaviour
     }
     IEnumerator LvlCompleteDelay()
     {
-        Debug.Log("finish");
-        yield return new WaitForSeconds(1.0f);
+        float speed = currentSpeed;
+        for (int i = 0; i < 150; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            if (currentSpeed > 0)
+                currentSpeed -= speed/150;
+        }
         StopCar();
         FInishLvl();
 
