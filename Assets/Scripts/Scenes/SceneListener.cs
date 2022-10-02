@@ -61,6 +61,10 @@ public class SceneListener : MonoBehaviour
     }
     public void StartGarageScene()
     {
+        SceneControll.instance.StartGarageScene();
+    }
+    public void StartMapScene()
+    {
         SceneControll.instance.StartMapScene();
     }
     public void AddParts(int value)

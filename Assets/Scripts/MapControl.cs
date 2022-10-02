@@ -38,7 +38,12 @@ public class MapControl : MonoBehaviour
         {
             Levels[i].transform.GetChild(1).gameObject.SetActive(true);
             Levels[i].transform.GetChild(2).gameObject.SetActive(false);
+            
         }
+
+            Levels[SceneControll.currentLvl].transform.GetChild(0).gameObject.SetActive(true);
+            Levels[SceneControll.currentLvl].transform.GetChild(2).gameObject.SetActive(true);
+        
     }
     public void StartGarageScene() => SceneControll.instance.StartGarageScene();
 }

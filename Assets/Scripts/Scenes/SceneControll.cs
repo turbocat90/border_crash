@@ -56,6 +56,14 @@ public class SceneControll : MonoBehaviour
     }
     public void StartGarageScene()
     {
+        foreach (var item in SceneCars.instance.allCars)
+        {
+            item.StopCar();
+            item.gameObject.SetActive(true);
+            item.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+            item.gameObject.transform.position = new Vector3(0, -100, 0);
+        }
+        SceneCars.instance.carsInGame.Clear();
         SceneManager.LoadScene(1);
     }
     private void OnApplicationFocus(bool focus)
