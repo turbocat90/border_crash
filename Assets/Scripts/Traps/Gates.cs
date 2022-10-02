@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Gates : MonoBehaviour
 {
+    [SerializeField] private int degreeOfStrange;
     public float HP;
-    private bool IsFinish = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Car car))
         {
+            car.TakeDamage(degreeOfStrange, 0);
             HP -= car.GetDamage();
             if (HP <= 0)
             {
