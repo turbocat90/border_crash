@@ -198,12 +198,16 @@ public class Car : MonoBehaviour
     IEnumerator LvlCompleteDelay()
     {
         float speed = currentSpeed;
-        for (int i = 0; i < 150; i++)
+        float acceleration = currentAcceleration;
+        currentAcceleration = 0;
+        for (int i = 0; i < 20; i++)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.1f);
             if (currentSpeed > 0)
-                currentSpeed -= speed/150;
+                currentSpeed -= speed/20;
+            Debug.Log(currentSpeed);
         }
+        currentAcceleration = acceleration;
         StopCar();
         FInishLvl();
 

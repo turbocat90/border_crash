@@ -10,12 +10,12 @@ public class Gates : MonoBehaviour
     {
         if (other.TryGetComponent(out Car car))
         {
-            car.TakeDamage(degreeOfStrange, 0);
             HP -= car.GetDamage();
             if (HP <= 0)
             {
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(1).gameObject.SetActive(true);
+                car.TakeDamage(degreeOfStrange, 0);
                 car.LvlComplete();
             }
             else
