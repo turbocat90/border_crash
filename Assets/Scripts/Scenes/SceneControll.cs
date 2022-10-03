@@ -32,6 +32,7 @@ public class SceneControll : MonoBehaviour
     public void ChangeScene()
     {
         currentLvl++;
+        Debug.Log("currentLvl = " + currentLvl);
     }
     public void StartCurrentScene()
     {

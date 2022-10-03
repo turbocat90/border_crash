@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Currency : MonoBehaviour
 {
+    public static Currency instance;
     public static int Canister = 20;
     public static int Parts = 1000000;
     private void Awake()
     {
-        LoadCanister();
-        LoadParts();
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
+        if(PlayerPrefs.HasKey("Canister"))
+          LoadCanister();
+        if (PlayerPrefs.HasKey("Parts"))
+            LoadParts();
+
     }
     private void Start()
     {
@@ -41,4 +50,5 @@ public class Currency : MonoBehaviour
     public static void LoadParts() => Parts = PlayerPrefs.GetInt("Parts");
     public static void SaveCanister() => PlayerPrefs.SetInt("Canister", Canister);
     public static void LoadCanister() => Parts = PlayerPrefs.GetInt("Canister");
+
 }

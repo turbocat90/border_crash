@@ -37,8 +37,8 @@ public class Car : MonoBehaviour
     public int maxArmorAndHpGrade { get; set; } = 5;
     public int maxSpeedAndControllGrade { get; set; } = 5;
 
-    public int currentSpeedAndControllGrade = 0; //  { get; set; } = 0;
-    public int currentArmorAndHpGrade = 0; // { get; set; } = 0;
+    public int currentSpeedAndControllGrade = 0;
+    public int currentArmorAndHpGrade = 0;
     [Space]
     [Header("Components")]
     [SerializeField] private Rigidbody rb;
@@ -50,7 +50,7 @@ public class Car : MonoBehaviour
     private float HP;
 
 
-    private void Awake()
+    private void Start()
     {
         Initialise();
         if (rb != null)
@@ -73,6 +73,7 @@ public class Car : MonoBehaviour
     {
         if (currentSpeedAndControllGrade < maxSpeedAndControllGrade)
         {
+
             currentSpeedAndControllGrade++;
             currentSpeed += (baseSpeed / 100) * speedGradePercent;
             currentAcceleration += (baseAcceleration / 100) * speedGradePercent;
@@ -93,33 +94,37 @@ public class Car : MonoBehaviour
     }
     private void Initialise()
     {
-        if (currentSpeedAndControllGrade == 0)
-        {
-            currentSpeed = baseSpeed;
-            currentAcceleration = baseAcceleration;
-            currentMaxSpeed = baseMaxSpeed;
-            currentTurnBraking = baseTurnBraking;
-            currentRotateAngle = baseRotateAngle;
-        }
-        else
-        {
+        currentSpeed = baseSpeed;
+        currentAcceleration = baseAcceleration;
+        currentMaxSpeed = baseMaxSpeed;
+        currentTurnBraking = baseTurnBraking;
+        currentRotateAngle = baseRotateAngle;
+
+        if (currentSpeedAndControllGrade > 0)
+        {       
             for (int i = 0; i < currentSpeedAndControllGrade; i++)
             {
-                SpeedAndControllUpgrade();
+                currentSpeed += (baseSpeed / 100) * speedGradePercent;
+                currentAcceleration += (baseAcceleration / 100) * speedGradePercent;
+                currentMaxSpeed += (baseMaxSpeed / 100) * speedGradePercent;
+                currentRotateAngle += (baseRotateAngle / 100) * speedGradePercent;
+                visualUpgrade.ActiveSpeedGrade(currentSpeedAndControllGrade);
             }
         }
-        if (currentArmorAndHpGrade == 0)
-        {
-            currentMass = baseMass;
-            currentArmor = baseArmor;
-        }
-        else
-        {
+
+        currentMass = baseMass;
+        currentArmor = baseArmor;
+        if (currentArmorAndHpGrade > 0)
+        { 
             for (int i = 0; i < currentArmorAndHpGrade; i++)
             {
-                ArmorAndDamageUpgrade();
+                currentArmor += (baseArmor / 100) * armorGradePercent;
+                currentMass += (baseMass / 100) * armorGradePercent;
+                visualUpgrade.ActiveArmorGrade(currentArmorAndHpGrade);
             }
         }
+    
+
     }
     private void Rotation()
     {

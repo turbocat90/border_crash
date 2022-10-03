@@ -12,11 +12,6 @@ public class MapControl : MonoBehaviour
         CheckLvlvAnimation();
     }
 
-
-    void Update()
-    {
-        
-    }
     private void CheckLvlvAnimation()
     {
         if (SceneControll.currentLvl == 0)
