@@ -26,7 +26,6 @@ public class ChooseCar_UI : MonoBehaviour
         {
             fill = canister / fullCanister;
             bar.fillAmount = fill;
-            Debug.Log(fill);
         }
         else
             bar.fillAmount = 1;

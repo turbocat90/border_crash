@@ -29,6 +29,7 @@ public class CarSelecter : MonoBehaviour
                     {
                         CameraController.FollowCar(car);
                         car.StartCar();
+                        isSelecting = false;
                     }
                 }
             }

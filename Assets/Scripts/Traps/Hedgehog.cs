@@ -152,7 +152,6 @@ public class Hedgehog : MonoBehaviour
     }
     public void SetTextValue(int value)
     {
-        Debug.Log(value);
         if (this.value != null)
         {
             this.value.text = value.ToString();
