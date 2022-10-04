@@ -5,7 +5,7 @@ using UnityEngine;
 public class Currency : MonoBehaviour
 {
     public static Currency instance;
-    public static int Canister = 20;
+    public static int Canister = 25;
     public static int Parts = 1000000;
     private void Awake()
     {
