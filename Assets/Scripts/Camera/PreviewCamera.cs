@@ -5,6 +5,7 @@ using System;
 
 public class PreviewCamera : MonoBehaviour
 {
+    [SerializeField] private Tutorial tutorial;
     [SerializeField] private float cameraSpeed;
     private float m_velocity = 0;
     private static Camera m_previewCamera;
@@ -14,6 +15,7 @@ public class PreviewCamera : MonoBehaviour
     private static Vector3 m_endPosition;
     private static bool isActive;
     private static float m_baseFOV = 75f;
+    private bool isTutorialStarted = false;
     private void Awake()
     {
         m_previewCamera = GetComponent<Camera>();
@@ -44,6 +46,14 @@ public class PreviewCamera : MonoBehaviour
                 {
                     // end move
                     Condition(false);
+                    if (!isTutorialStarted)
+                    {
+                        if (tutorial != null)
+                        {
+                            tutorial.StartFirstStep();
+                            isTutorialStarted = true;
+                        }
+                    } 
                     CameraController.DisablePreviewCamera();
                 }
             }

@@ -27,5 +27,5 @@ public class ActionSystem
     public static void LvlStarting() => OnLvlStarting?.Invoke();
     public static void CarFinished() => OnCarFinished?.Invoke();
     public static void AddCanister() => OnAddCanister?.Invoke();  
-    public static void AddParts(int value) => OnAddParts?.Invoke(value);  
+    public static void AddParts(int value) => OnAddParts?.Invoke(value);
 }

@@ -8,8 +8,6 @@ public class SaveLoad : MonoBehaviour
     public static SaveLoad instance;
     private List<CarSaver> car_save = new List<CarSaver>();
     private const string SAVE_PATH_CAR = "carSave";
-    private LevelSaver lvl_save;
-    private const string SAVE_PATH_LVL = "lvlSave";
 
 
     private void Awake()
@@ -31,10 +29,7 @@ public class SaveLoad : MonoBehaviour
             car_save.Add(new CarSaver(SceneCars.instance.allCars[i]));
         }
         FileHandler.SaveToJSON<CarSaver>(car_save, SAVE_PATH_CAR);
-
-        // save lvl
-        lvl_save = new LevelSaver(SceneControll.currentLvl);
-        FileHandler.SaveToJSON<LevelSaver>(lvl_save, SAVE_PATH_LVL);
+        PlayerPrefs.SetInt("Lvl", SceneControll.currentLvl);
 
         // save currency
         Currency.SaveCanister();
@@ -43,8 +38,6 @@ public class SaveLoad : MonoBehaviour
     private void Load()
     {
         car_save = FileHandler.ReadListFromJSON<CarSaver>(SAVE_PATH_CAR);
-        lvl_save = FileHandler.ReadFromJSON<LevelSaver>(SAVE_PATH_LVL);
-
         // загрузка грейдов
         if (car_save != null)
         {
@@ -59,15 +52,16 @@ public class SaveLoad : MonoBehaviour
         }
 
         // загрузка лвл
-        if (lvl_save != null)
-            SceneControll.currentLvl = lvl_save.currentLvl;
-
-
     }
 
     private void OnApplicationFocus(bool focus)
     {
         if (!focus)
+            Save();
+    }
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
             Save();
     }
 
@@ -92,12 +86,6 @@ public class CarSaver
         this.armorGrade = car.currentArmorAndHpGrade;
 
     }
-}
-[Serializable]
-public class LevelSaver
-{
-    public int currentLvl;
-    public LevelSaver(int currentLvl) => this.currentLvl = currentLvl;
 }
 
 

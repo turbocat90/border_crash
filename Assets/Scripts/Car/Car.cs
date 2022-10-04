@@ -210,7 +210,6 @@ public class Car : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             if (currentSpeed > 0)
                 currentSpeed -= speed/20;
-            Debug.Log(currentSpeed);
         }
         currentAcceleration = acceleration;
         StopCar();

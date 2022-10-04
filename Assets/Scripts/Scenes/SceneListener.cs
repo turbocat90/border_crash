@@ -51,9 +51,7 @@ public class SceneListener : MonoBehaviour
     }
     private void LvlComplete()
     {
-        Debug.Log("123");
         canvasCompleteLvl.SetActive(true);
-        Debug.Log("!");
         UpgradeLvlParts();
         Currency.Parts += lvlParts;
         Currency.AddCanister(lvlCanister);

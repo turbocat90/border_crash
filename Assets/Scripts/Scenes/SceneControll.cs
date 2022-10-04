@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 public class SceneControll : MonoBehaviour
 {
     public static SceneControll instance;
-    public static int currentLvl = 0;
+    public static int currentLvl;
     
     private void Awake()
     {
         DontDestroyOnLoad(this);
+        if (PlayerPrefs.HasKey("Lvl"))
+            currentLvl = PlayerPrefs.GetInt("Lvl");
+        else
+            currentLvl = 0;
+        Debug.Log("lvl =" + currentLvl);
     }
     private void Start()
     {
@@ -32,6 +37,7 @@ public class SceneControll : MonoBehaviour
     public void ChangeScene()
     {
         currentLvl++;
+        PlayerPrefs.SetInt("Lvl", SceneControll.currentLvl);
         Debug.Log("currentLvl = " + currentLvl);
     }
     public void StartCurrentScene()

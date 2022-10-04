@@ -18,10 +18,10 @@ public class Car_UI : MonoBehaviour
     public void Initialise(Car car)
     {
         car_name.text = car.CarName;
-        car_speed.text = car.currentMaxSpeed.ToString() + " m/h";
-        car_control.text = car.currentRotateAngle.ToString() + "°";
-        car_armor.text = car.currentArmor.ToString();
-        car_damage.text = car.currentMass.ToString() + " kg";
+        car_speed.text = ((int)car.currentMaxSpeed).ToString() + " m/h";
+        car_control.text = ((int)car.currentRotateAngle).ToString() + "°";
+        car_armor.text = ((int)car.currentArmor).ToString();
+        car_damage.text = ((int)car.currentMass).ToString() + " kg";
         currentCar = car;
     }
     public void AddCar()
@@ -44,9 +44,9 @@ public class Car_UI : MonoBehaviour
     }
     public void UpgradeStats()
     {
-        car_speed.text = currentCar.currentMaxSpeed.ToString() + " m/h";
-        car_control.text = currentCar.currentRotateAngle.ToString() + "°";
-        car_armor.text = currentCar.currentArmor.ToString();
-        car_damage.text = currentCar.currentMass.ToString() + " kg";
+        car_speed.text = ((int)currentCar.currentMaxSpeed).ToString() + " m/h";
+        car_control.text = ((int)currentCar.currentRotateAngle).ToString() + "°";
+        car_armor.text = ((int)currentCar.currentArmor).ToString();
+        car_damage.text = ((int)currentCar.currentMass).ToString() + " kg";
     }
 }

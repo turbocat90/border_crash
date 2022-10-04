@@ -93,12 +93,10 @@ public class VisualUpgrade : MonoBehaviour
                 speedGradeParticle[0].Play();
             else if (currentSpeedGrade >= 5)
             {
-                Debug.Log("1");
 
                 speedGradeParticle[0].Play();
                 speedGradeParticle[1].Play();
                 speedGradeParticle[2].Play();
-                Debug.Log("2");
 
             }
         }

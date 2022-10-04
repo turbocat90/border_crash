@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 1920
-    y: 48
+    x: 0
+    y: 43
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 136
+  controlID: 141
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -324,8 +324,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 3433
-    y: 78
+    x: 1513
+    y: 73
     width: 406
     height: 926
   m_ViewDataDictionary: {fileID: 0}
@@ -375,7 +375,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 24924
+  m_LastSelectedObjectID: 662364
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -424,8 +424,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1920
-    y: 720
+    x: 0
+    y: 715
     width: 1512
     height: 284
   m_ViewDataDictionary: {fileID: 0}
@@ -445,22 +445,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/FacebookSDK/SDK/Resources
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/FacebookSDK/SDK/Resources
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Documents\\GitHub\\border_crash"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 88}
-    m_SelectedIDs: 748e0000
-    m_LastClickedID: 36468
-    m_ExpandedIDs: 000000001e8e0000208e000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 239}
+    m_SelectedIDs: c28d0000
+    m_LastClickedID: 36290
+    m_ExpandedIDs: 00000000388d00003a8d0000728d0000c48d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -476,7 +476,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 6}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
@@ -488,7 +488,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001e8e0000208e0000
+    m_ExpandedIDs: 00000000388d00003a8d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -564,8 +564,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1920
-    y: 78
+    x: 0
+    y: 73
     width: 267
     height: 621
   m_ViewDataDictionary: {fileID: 0}
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: fa8c0000
       m_LastClickedID: 0
       m_ExpandedIDs: e8faffff
       m_RenameOverlay:
@@ -621,8 +621,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 2188
-    y: 78
+    x: 268
+    y: 73
     width: 822
     height: 621
   m_ViewDataDictionary: {fileID: 0}
@@ -859,9 +859,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 12.27459, y: 11.3324585, z: -6.7591705}
+    m_Target: {x: -58.89126, y: -80.42538, z: -17.36387}
     speed: 2
-    m_Value: {x: 12.27459, y: 11.3324585, z: -6.7591705}
+    m_Value: {x: -58.89126, y: -80.42538, z: -17.36387}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -907,13 +907,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0003534648, y: 0.9994113, z: -0.03330269, w: -0.011379361}
+    m_Target: {x: -0.24688058, y: 0.09951253, z: -0.025522463, w: -0.9636176}
     speed: 2
-    m_Value: {x: -0.0003534648, y: 0.9994113, z: -0.03330269, w: -0.011379361}
+    m_Value: {x: -0.24688059, y: 0.09951253, z: -0.025522463, w: -0.9636177}
   m_Size:
-    m_Target: 14.221005
+    m_Target: 10.92025
     speed: 2
-    m_Value: 14.221005
+    m_Value: 10.92025
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -958,8 +958,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 3012
-    y: 78
+    x: 1092
+    y: 73
     width: 419
     height: 621
   m_ViewDataDictionary: {fileID: 0}
@@ -1057,8 +1057,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1920
-    y: 720
+    x: 0
+    y: 715
     width: 1512
     height: 284
   m_ViewDataDictionary: {fileID: 0}

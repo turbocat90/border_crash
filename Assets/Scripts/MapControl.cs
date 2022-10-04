@@ -8,6 +8,7 @@ public class MapControl : MonoBehaviour
     [SerializeField] private List<GameObject> Levels;
     void Start()
     {
+        Debug.Log("mapcontrol");
         SetLvlvlIcons();
         CheckLvlvAnimation();
     }

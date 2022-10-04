@@ -5,6 +5,8 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private float smoothRateFOV;
+    [SerializeField] private Tutorial tutorial;
+    private bool isTutorialStarted = false;
     private float cameraSpeed = 0;
     private float minFOV = 30, maxFOV = 60;
     private float m_offset_X = 0f;
@@ -26,12 +28,14 @@ public class FollowCamera : MonoBehaviour
     {
         if (m_followTarget)
         {
-            //  olf method
-            /* Vector3 currentPosition = Vector3.Lerp(transform.position, m_target, cameraSpeed * Time.fixedDeltaTime);
-             transform.position = currentPosition;
-             m_target = new Vector3(m_followTarget.gameObject.transform.position.x + offset_X, transform.position.y, m_followTarget.gameObject.transform.position.z + offset_Z);
- */
-            // new method
+            if (!isTutorialStarted)
+            {
+                if (tutorial != null)
+                {
+                    tutorial.StartSecondStep();
+                    isTutorialStarted=true;
+                }
+            }
             Vector3 carpos = new Vector3(m_followTarget.gameObject.transform.position.x + m_offset_X, transform.position.y, m_followTarget.gameObject.transform.position.z - m_offset_Z);
             transform.position = Vector3.SmoothDamp(transform.position, carpos, ref m_velocityV, cameraSpeed);
 
@@ -48,7 +52,8 @@ public class FollowCamera : MonoBehaviour
         }
     }
     public static float GetCurrentFOV() => currentFOV;
-    public static void SetFollowTarget(Car car ) => m_followTarget = car;
+    public static void SetFollowTarget(Car car) => m_followTarget = car;
+
     public static void EnabledDisable(bool isOn) => m_mainCamera.gameObject.SetActive(isOn);
     public static void ResetPosition()
     {
