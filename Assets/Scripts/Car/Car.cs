@@ -180,7 +180,7 @@ public class Car : MonoBehaviour
         HP = currentArmor;
         carIsActive = true;
         visualUpgrade.StartMovingParcticle();
-        visualUpgrade.StartSpeedGradeParticle(currentSpeedAndControllGrade);
+        //visualUpgrade.StartSpeedGradeParticle(currentSpeedAndControllGrade);
         touchController.StartTouch();
         visualUpgrade.PlayParticlesInGame(typeCar, currentSpeedAndControllGrade);
         wheel.StartRotate(true);
@@ -189,6 +189,7 @@ public class Car : MonoBehaviour
     public void StopCar()
     {
         visualUpgrade.StopMovingParticles();
+        visualUpgrade.StopParticlesInGame();
         carIsActive = false;
         wheel.StartRotate(false);
     }

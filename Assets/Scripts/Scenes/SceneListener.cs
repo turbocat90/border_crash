@@ -43,7 +43,7 @@ public class SceneListener : MonoBehaviour
         {
             canvasGameOver.SetActive(true);
             UpgradeLvlParts();
-            Currency.Parts += lvlParts;
+            Currency.AddParts(lvlParts);
             DeActivateEvent();
         }
         else
@@ -53,7 +53,7 @@ public class SceneListener : MonoBehaviour
     {
         canvasCompleteLvl.SetActive(true);
         UpgradeLvlParts();
-        Currency.Parts += lvlParts;
+        Currency.AddParts(lvlParts);
         Currency.AddCanister(lvlCanister);
         DeActivateEvent();
     }
