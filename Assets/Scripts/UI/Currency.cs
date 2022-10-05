@@ -6,7 +6,7 @@ public class Currency : MonoBehaviour
 {
     public static Currency instance;
     public static int Canister = 25;
-    public static int Parts = 1000000;
+    public static int Parts = 9000000;
     private void Awake()
     {
         if (instance == null)

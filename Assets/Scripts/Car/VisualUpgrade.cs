@@ -12,7 +12,7 @@ public class VisualUpgrade : MonoBehaviour
     [SerializeField] private List<ParticleSystem> movingParticle;
     [SerializeField] private List<ParticleSystem> deathParticle;
     [SerializeField] private List<ParticleSystem> speedGradeParticle;
-    [SerializeField] private int speedGradeToStartParticle = 0;
+    //[SerializeField] private int speedGradeToStartParticle = 0;
 
     private List<ParticleSystem> SpeedParticles = new List<ParticleSystem>();
     public void StartMovingParcticle()
@@ -57,7 +57,7 @@ public class VisualUpgrade : MonoBehaviour
         }     
         
     }
-    public void StartSpeedGradeParticle(int currentSpeedGrade)
+/*    public void StartSpeedGradeParticle(int currentSpeedGrade)
     {
         if (currentSpeedGrade >= speedGradeToStartParticle && speedGradeParticle.Count != 0)
         {
@@ -66,7 +66,7 @@ public class VisualUpgrade : MonoBehaviour
                 item.gameObject.SetActive(true);
             }
         }
-    }
+    }*/
     public void PlayParticlesInGame(TypeCar typcar, int currentSpeedGrade)
     {
         if(typcar == TypeCar.Buggy)
@@ -108,5 +108,12 @@ public class VisualUpgrade : MonoBehaviour
         }
         else if (typcar == TypeCar.Hill_Climber)
             speedGradeParticle[0].Play();
+    }
+    public void StopParticlesInGame()
+    {
+        foreach (var item in speedGradeParticle)
+        {
+            item.Stop();
+        }
     }
 }

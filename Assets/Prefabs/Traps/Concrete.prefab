@@ -1204,7 +1204,8 @@ MonoBehaviour:
   BarellExpForce: 0
   TreeHP: 0
   FenceHP: 0
-  BetonHP: 500
+  BetonHP: 50
+  BetonFractureObject: {fileID: 3472502251580597161}
   LittleRockHP: 0
   ZombieParts: 0
   BarellParticleExp: {fileID: 0}
@@ -3207,7 +3208,7 @@ Transform:
   - {fileID: 3472502250320904608}
   - {fileID: 3472502251580597162}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8782729107801660867
 GameObject:

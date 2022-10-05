@@ -108,6 +108,7 @@ public class Upgrade_UI : MonoBehaviour
         {
             speedUpgradePrice.text = "MAX";
             speedButton.enabled = false;
+            Currency.SaveParts();
         }
     }
     public void UpgradeArmorCar()
@@ -124,6 +125,7 @@ public class Upgrade_UI : MonoBehaviour
         {
             armorUpgradePrice.text = "MAX";
             armorButton.enabled = false;
+            Currency.SaveParts();
         }
     }
     private void UpgradeStats()

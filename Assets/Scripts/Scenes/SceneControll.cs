@@ -37,11 +37,11 @@ public class SceneControll : MonoBehaviour
     public void ChangeScene()
     {
         currentLvl++;
-        PlayerPrefs.SetInt("Lvl", SceneControll.currentLvl);
-        Debug.Log("currentLvl = " + currentLvl);
+        SaveLoad.instance.Save();
     }
     public void StartCurrentScene()
     {
+        SaveLoad.instance.Save();
         SceneManager.LoadScene(currentLvl + 2);
         EventControll.instance.DeactivateEvent();
         for (int i = 0; i < LvLPoints.instance.Lvl[currentLvl].Position.Count; i++)
@@ -51,6 +51,7 @@ public class SceneControll : MonoBehaviour
     }
     public void StartMapScene()
     {
+        SaveLoad.instance.Save();
         foreach (var item in SceneCars.instance.allCars)
         {
             item.StopCar();
@@ -63,6 +64,7 @@ public class SceneControll : MonoBehaviour
     }
     public void StartGarageScene()
     {
+        SaveLoad.instance.Save();
         foreach (var item in SceneCars.instance.allCars)
         {
             item.StopCar();
@@ -72,21 +74,5 @@ public class SceneControll : MonoBehaviour
         }
         SceneCars.instance.carsInGame.Clear();
         SceneManager.LoadScene(1);
-    }
-    private void OnApplicationFocus(bool focus)
-    {
-        if (!focus)
-        {
-            ApplicationQuit();
-        }
-    }
-    private void ApplicationQuit()
-    {
-        PlayerPrefs.DeleteAll();
-        Application.Quit();
-    }
-    private void OnApplicationQuit()
-    {
-        ApplicationQuit();
     }
 }
