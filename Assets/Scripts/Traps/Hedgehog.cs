@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using System.Runtime.ConstrainedExecution;
 
 public class Hedgehog : MonoBehaviour
 {
@@ -39,12 +40,8 @@ public class Hedgehog : MonoBehaviour
     {
         if (collision.transform.TryGetComponent(out Car car))
         {
-            if (trap == TypeTrap.Puddle)
-                car.TakeDamage(PuddledegreeOfStrength, PuddleDamage);
             if (trap == TypeTrap.BigRock)
                 car.TakeDamage(BigRockdegreeOfStrength, BigRockDamage, true);
-            if (trap == TypeTrap.Oil)
-                car.Skidding();
             if (trap == TypeTrap.LittleRock)
             {
                 if (car.GetDamage() >= LittleRockHP)
@@ -123,9 +120,16 @@ public class Hedgehog : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (trap == TypeTrap.Barell)
+        if (other.TryGetComponent(out Car car))
         {
-            if (other.TryGetComponent(out Car car))
+            if (trap == TypeTrap.Puddle)
+            {
+                Debug.Log("water");
+                car.TakeDamage(PuddledegreeOfStrength, PuddleDamage);
+            }
+            if (trap == TypeTrap.Oil)
+                car.Skidding();
+            if (trap == TypeTrap.Barell)
             {
                 car.TakeDamage(0, BarrelDamage);
                 if (other.TryGetComponent(out Rigidbody rb))
@@ -136,17 +140,14 @@ public class Hedgehog : MonoBehaviour
                     StartCoroutine(DelayDestroy());
                 }
             }
-        }
-        if (trap == TypeTrap.Zombie)
-        {
-            ActionSystem.AddParts(ZombieParts);
-           
-            if (other.TryGetComponent(out Car car))
+            if (trap == TypeTrap.Zombie)
             {
+                ActionSystem.AddParts(ZombieParts);
+
                 SetTextValue(ZombieParts);
                 car.TakeDamage(ZombiedegreeOfStrength, ZombieDamage);
             }
-        }
+        }       
     }
     IEnumerator DelayDestroy()
     {
