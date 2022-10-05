@@ -24,7 +24,6 @@ public class Hedgehog : MonoBehaviour
     public float TreeHP;
     public float FenceHP;
     public float BetonHP;
-    public GameObject BetonFractureObject;
     public float LittleRockHP;
     public int ZombieParts;
     public ParticleSystem BarellParticleExp;
@@ -104,8 +103,6 @@ public class Hedgehog : MonoBehaviour
                 }
                 else
                 {
-                    BetonFractureObject.SetActive(false);
-                    car.DestroyCar();
                     BetonHP -= car.GetDamage();
                     ActionSystem.AddParts((int)car.GetDamage());
                     SetTextValue((int)car.GetDamage());

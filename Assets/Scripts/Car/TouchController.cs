@@ -11,10 +11,38 @@ public class TouchController : MonoBehaviour
     {
         if (isStarting)
         {
+            /*            if (Input.touchCount > 0 && Input.touchCount < 2)
+                        {
+                            Touch touch = Input.GetTouch(0);
+                            if (touch.position.x < Screen.width / 2)
+                            {
+                                moveDirection = -1;
+                            }
+                            else
+                            {
+                                moveDirection = 1;
+                            }
+                        }
+                        else if (Input.touchCount == 0)
+                        {
+                            moveDirection = 0;
+                        }
+                        else if (Input.touchCount >= 2)
+                        {
+                            moveDirection = 0;
+                            if (Input.GetTouch(0).phase == TouchPhase.Began || Input.GetTouch(1).phase == TouchPhase.Began)
+                            {
+                                braking = true;
+                            }
+                            else if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(1).phase == TouchPhase.Ended)
+                            {
+                                braking = false;
+                            }
+                        }*/
             if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
-                if (touch.position.y > Screen.height / 6)
+                if (touch.position.y > Screen.height / 5)
                 {
                     if (touch.position.x < Screen.width / 2)
                     {

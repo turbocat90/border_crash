@@ -28,7 +28,6 @@ public class TrapTypeEditor : Editor
     SerializedProperty ZombieParts;
     SerializedProperty value;
     SerializedProperty animator;
-    SerializedProperty BetonFractureObject;
     private void OnEnable()
     {
         Type = serializedObject.FindProperty("trap");
@@ -49,7 +48,6 @@ public class TrapTypeEditor : Editor
         BetondegreeOfStrength = serializedObject.FindProperty("BetondegreeOfStrength");
         BetonDamage = serializedObject.FindProperty("BetonDamage");
         BetonHP = serializedObject.FindProperty("BetonHP");
-        BetonFractureObject = serializedObject.FindProperty("BetonFractureObject");
         value = serializedObject.FindProperty("value");
         animator = serializedObject.FindProperty("animator");
         ZombieParts = serializedObject.FindProperty("ZombieParts");
@@ -100,7 +98,6 @@ public class TrapTypeEditor : Editor
             EditorGUILayout.PropertyField(BetondegreeOfStrength);
             EditorGUILayout.PropertyField(BetonDamage);
             EditorGUILayout.PropertyField(BetonHP);
-            EditorGUILayout.PropertyField(BetonFractureObject);
         }
         EditorGUILayout.Space();
         if (Type.enumValueIndex == (int)TypeTrap.Zombie)

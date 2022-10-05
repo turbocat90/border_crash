@@ -54,11 +54,11 @@ public class SaveLoad : MonoBehaviour
         // загрузка лвл
     }
 
-/*    private void OnApplicationFocus(bool focus)
+    private void OnApplicationFocus(bool focus)
     {
         if (!focus)
             Save();
-    }*/
+    }
     private void OnApplicationPause(bool pause)
     {
         if (pause)
