@@ -1907,7 +1907,7 @@ Transform:
   - {fileID: 2919641062133760309}
   - {fileID: 8294795800639189618}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -179.821, z: 0}
 --- !u!208 &8294795800341567214
 NavMeshObstacle:
@@ -2660,6 +2660,7 @@ MonoBehaviour:
   TreeHP: 0
   FenceHP: 10
   BetonHP: 0
+  BetonFractureObject: {fileID: 0}
   LittleRockHP: 0
   ZombieParts: 0
   BarellParticleExp: {fileID: 0}
